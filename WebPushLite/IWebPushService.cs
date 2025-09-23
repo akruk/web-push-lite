@@ -1,8 +1,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using WebPushNet.Models;
+using WebPushLite.Models;
 
-namespace WebPushNet;
+namespace WebPushLite;
 
 public interface IWebPushService
 {

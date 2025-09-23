@@ -3,9 +3,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using Microsoft.IdentityModel.Tokens;
-using WebPushNet.Utils;
+using WebPushLite.Utils;
 
-namespace WebPushNet.Models;
+namespace WebPushLite.Models;
 
 public class VapidKeys
 {

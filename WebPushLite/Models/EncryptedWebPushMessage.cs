@@ -1,6 +1,6 @@
-using WebPushNet.Utils;
+using WebPushLite.Utils;
 
-namespace WebPushNet.Models;
+namespace WebPushLite.Models;
 
 internal class EncryptedWebPushMessage
 {

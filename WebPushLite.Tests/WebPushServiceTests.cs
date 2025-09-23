@@ -1,7 +1,7 @@
 using System.Text.Json;
-using WebPushNet.Models;
+using WebPushLite.Models;
 
-namespace WebPushNet.Tests;
+namespace WebPushLite.Tests;
 
 public class WebPushServiceTests
 {

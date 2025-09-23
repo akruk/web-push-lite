@@ -1,12 +1,12 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
-using WebPushNet.Models;
-using WebPushNet.Utils;
+using WebPushLite.Utils;
+using WebPushLite.Models;
 
-[assembly: InternalsVisibleTo("WebPushNet.Tests")]
+[assembly: InternalsVisibleTo("WebPushLite.Tests")]
 
-namespace WebPushNet;
+namespace WebPushLite;
 
 internal static class WebPushEncryptor
 {

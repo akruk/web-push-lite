@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
-using WebPushNet.Utils;
+using WebPushLite.Utils;
 
-namespace WebPushNet.Tests;
+namespace WebPushLite.Tests;
 
 public class WebPushEncryptorTests
 {

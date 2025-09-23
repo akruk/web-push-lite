@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using WebPushNet.Models;
+using WebPushLite.Models;
 
-namespace WebPushNet
+namespace WebPushLite
 {
     public class WebPushService : IWebPushService, IDisposable
     {

@@ -4,14 +4,14 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Version>1.0.0-beta</Version>
         <Authors>akruk</Authors>
         <Description>.NET library for Web Push</Description>
+        <PackageId>web-push-lite</PackageId>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/akruk/web-push-net</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/akruk/web-push-net</RepositoryUrl>
-        <PackageTags>webpush web push vapid</PackageTags>
+        <PackageProjectUrl>https://github.com/akruk/web-push-lite</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/akruk/web-push-lite</RepositoryUrl>
+        <PackageTags>webpush vapid</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

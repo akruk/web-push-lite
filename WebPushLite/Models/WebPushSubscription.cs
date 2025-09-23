@@ -1,6 +1,6 @@
 using System;
 
-namespace WebPushNet.Models;
+namespace WebPushLite.Models;
 
 public class WebPushSubscription
 {

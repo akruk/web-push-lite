@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WebPushNet\WebPushNet.csproj" />
+      <ProjectReference Include="..\WebPushLite\WebPushLite.csproj" />
     </ItemGroup>
 
 </Project>

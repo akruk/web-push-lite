@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushNet", "WebPushNet\WebPushNet.csproj", "{E0975B09-EAF8-4374-BE26-DF88E4D1342B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushLite", "WebPushLite\WebPushLite.csproj", "{E0975B09-EAF8-4374-BE26-DF88E4D1342B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushNet.Tests", "WebPushNet.Tests\WebPushNet.Tests.csproj", "{E0C55669-D18C-48B6-8EBE-BE971F718ED2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushLite.Tests", "WebPushLite.Tests\WebPushLite.Tests.csproj", "{E0C55669-D18C-48B6-8EBE-BE971F718ED2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

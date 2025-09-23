@@ -1,6 +1,6 @@
 using System;
 
-namespace WebPushNet.Utils;
+namespace WebPushLite.Utils;
 
 internal static class ConversionExtensions
 {
