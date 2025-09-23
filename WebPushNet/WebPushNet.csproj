@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.0-beta</Version>
+        <Authors>akruk</Authors>
+        <Company />
+        <Product />
+        <Description>.NET library for Web Push</Description>
+        <PackageLicenseUrl>https://github.com/akruk/web-push-net/blob/main/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/akruk/web-push-net</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/akruk/web-push-net</RepositoryUrl>
+        <PackageTags>webpush web push vapid</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+    </ItemGroup>
+
+</Project>
