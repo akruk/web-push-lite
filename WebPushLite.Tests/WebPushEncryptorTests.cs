@@ -23,8 +23,8 @@ public class WebPushEncryptorTests
         // Act
         var encryptedMessage = WebPushEncryptor.EncryptAesgcm(
             Encoding.UTF8.GetBytes(payloadStr), 
-            ConversionExtensions.EncodeToBase64(uaPub), 
-            ConversionExtensions.EncodeToBase64(auth));
+            ConversionExtensions.EncodeToBase64Url(uaPub), 
+            ConversionExtensions.EncodeToBase64Url(auth));
         
         // Verify
         var serverParams = new ECParameters

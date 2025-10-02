@@ -21,9 +21,9 @@ internal class EncryptedWebPushMessage
         Body = body;
         
         ServerPublicKey = serverPublicKey;
-        ServerPublicKeyBase64 = ServerPublicKey.EncodeToBase64();
+        ServerPublicKeyBase64 = ServerPublicKey.EncodeToBase64Url();
         
         Salt = salt;
-        SaltBase64 = Salt.EncodeToBase64();
+        SaltBase64 = Salt.EncodeToBase64Url();
     }
 }

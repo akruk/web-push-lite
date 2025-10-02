@@ -4,7 +4,7 @@ namespace WebPushLite.Utils;
 
 internal static class ConversionExtensions
 {
-    public static byte[] DecodeFromBase64(this string base64)
+    public static byte[] DecodeFromBase64Url(this string base64)
     {
         base64 = base64.Replace('-', '+').Replace('_', '/');
 
@@ -16,7 +16,7 @@ internal static class ConversionExtensions
         return Convert.FromBase64String(base64);
     }
     
-    public static string EncodeToBase64(this byte[] bytes)
+    public static string EncodeToBase64Url(this byte[] bytes)
     {
         return Convert.ToBase64String(bytes).Replace('+', '-').Replace('/', '_').TrimEnd('=');
     }

@@ -1,8 +1,6 @@
 using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Security.Cryptography;
-using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using WebPushLite.Utils;
 
 namespace WebPushLite.Models;
@@ -34,7 +32,7 @@ public class VapidKeys
         if (string.IsNullOrEmpty(publicKey))
             throw new ArgumentException("Public key cannot be empty");
         
-        _publicKeyBytes = publicKey.DecodeFromBase64();
+        _publicKeyBytes = publicKey.DecodeFromBase64Url();
         
         if (_publicKeyBytes.Length != 65 || _publicKeyBytes[0] != 0x04)
             throw new ArgumentException("Public key must be an uncompressed P-256 point (65 bytes, starts with 0x04)");
@@ -44,7 +42,7 @@ public class VapidKeys
         if (string.IsNullOrEmpty(privateKey))
             throw new ArgumentException("Private key cannot be empty");
         
-        _privateKeyBytes = privateKey.DecodeFromBase64();
+        _privateKeyBytes = privateKey.DecodeFromBase64Url();
 
         if (_privateKeyBytes.Length != 32)
             throw new ArgumentException("Private key must be 32 bytes long");
@@ -59,6 +57,17 @@ public class VapidKeys
 
         if (!Uri.IsWellFormedUriString(audience, UriKind.Absolute))
             throw new ArgumentException("Audience must be a valid URL");
+        
+        var exp = DateTimeOffset.UtcNow.Add(expiration ?? DefaultExpiration).ToUnixTimeSeconds();
+        
+        var header = "{ \"alg\": \"ES256\", \"typ\": \"JWT\" }";
+        string headerB64 = Encoding.UTF8.GetBytes(header).EncodeToBase64Url();
+
+        var payload = $"{{ \"sub\": \"{Subject}\", \"exp\": {exp}, \"aud\": \"{audience}\" }}";
+        string payloadB64 = Encoding.UTF8.GetBytes(payload).EncodeToBase64Url();
+        
+        string message = $"{headerB64}.{payloadB64}";
+        byte[] messageBytes = Encoding.UTF8.GetBytes(message);
 
         var ecParams = new ECParameters
         {
@@ -66,22 +75,12 @@ public class VapidKeys
             D = _privateKeyBytes
         };
 
-        var ecdsa = ECDsa.Create(ecParams);
-
-        var securityKey = new ECDsaSecurityKey(ecdsa)
-        {
-            KeyId = null // VAPID typically omits kid
-        };
+        using var ecdsa = ECDsa.Create(ecParams);
         
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.EcdsaSha256);
+        byte[] rawSignature = ecdsa.SignData(messageBytes, HashAlgorithmName.SHA256);
 
-        var token = new JwtSecurityToken(
-            audience: audience,
-            expires: DateTime.UtcNow.Add(expiration ?? DefaultExpiration),
-            signingCredentials: credentials,
-            claims: [new Claim("sub", Subject)]
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        string signatureB64 = rawSignature.EncodeToBase64Url();
+            
+        return $"{message}.{signatureB64}";
     }
 }

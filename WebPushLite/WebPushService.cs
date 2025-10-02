@@ -20,7 +20,7 @@ namespace WebPushLite
             _httpClient = new HttpClient();
         }
 
-        public HttpRequestMessage GenerateRequestDetails(WebPushSubscription subscription, string payload)
+        public HttpRequestMessage CreateRequest(WebPushSubscription subscription, string payload)
         {
             if (string.IsNullOrEmpty(payload))
                 throw new ArgumentNullException(nameof(payload));
@@ -65,7 +65,7 @@ namespace WebPushLite
 
         public async Task<HttpResponseMessage> SendAsync(WebPushSubscription subscription, string payload)
         {
-            var requestMessage = GenerateRequestDetails(subscription, payload);
+            var requestMessage = CreateRequest(subscription, payload);
 
             return await _httpClient.SendAsync(requestMessage).ConfigureAwait(false);
         }

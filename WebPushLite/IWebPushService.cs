@@ -6,6 +6,6 @@ namespace WebPushLite;
 
 public interface IWebPushService
 {
-    HttpRequestMessage GenerateRequestDetails(WebPushSubscription subscription, string payload);
+    HttpRequestMessage CreateRequest(WebPushSubscription subscription, string payload);
     Task<HttpResponseMessage> SendAsync(WebPushSubscription subscription, string payload);
 }

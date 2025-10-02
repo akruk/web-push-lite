@@ -21,8 +21,8 @@ internal static class WebPushEncryptor
     internal static EncryptedWebPushMessage EncryptAesgcm(byte[] payload, string uaPublicKeyBase64Url, string authSecretBase64Url)
     {
         // Decode subscription inputs (base64url)
-        var uaPublic = uaPublicKeyBase64Url.DecodeFromBase64();    // expected 65 bytes: 0x04 || X(32) || Y(32)
-        var authSecret = authSecretBase64Url.DecodeFromBase64();   // expected 16 bytes
+        var uaPublic = uaPublicKeyBase64Url.DecodeFromBase64Url();    // expected 65 bytes: 0x04 || X(32) || Y(32)
+        var authSecret = authSecretBase64Url.DecodeFromBase64Url();   // expected 16 bytes
 
         if (uaPublic == null || uaPublic.Length != 65 || uaPublic[0] != 0x04)
             throw new ArgumentException("User agent public key must be an uncompressed P-256 point (65 bytes, starts with 0x04).", nameof(uaPublicKeyBase64Url));
